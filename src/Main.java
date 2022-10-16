@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String pn = "";
-        String pm = "";
+        String pn = "", pm = "";
         int w = 0;
         Scanner scanner = new Scanner(System.in);
-        Phone phone1 = null;
-        Phone phone2 = null;
-        Phone phone3 = null;
+        Phone phone1 = null, phone2 = null, phone3 = null; // 3 экз тел
+
         for (int i = 1; i < 4; i++) {
             System.out.print("Введите номер " + i + " телефона: ");
             Scanner sc = new Scanner(System.in);
@@ -61,5 +59,8 @@ public class Main {
         phone2.receiveCall("Павлуня", "375(33)222-22-23");
         phone3.receiveCall("Александр", "375(33)333-33-34");
         scanner.close();
+
+        System.out.println(phone1.sendMessage("+375(29)999-99-99", "+375(29)888-88-88", "+375(29)777-77-77"));
+
     }
 }
