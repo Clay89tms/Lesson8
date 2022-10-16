@@ -19,12 +19,14 @@ public class Main {
                 System.out.print("Введите Модель " + i + " телефона: ");
                 pm = sc.nextLine();
                 System.out.print("Введите Вес " + i + " телефона: ");
+                if (!sc.hasNextInt()) {
+                    break;
+                }
                 w = sc.nextInt();
                 System.out.println();
                 switch (i) {
                     case (1):
                         phone1 = new Phone(pn, pm, w);
-
                         break;
                     case (2):
                         phone2 = new Phone(pn, pm, w);
@@ -35,9 +37,7 @@ public class Main {
                         break;
                 }
             }
-
         }
-
 
         System.out.println("Номер телефона 1: " + phone1.number +
                 "\nМодель телефона 1: " + phone1.model + "; Вес = " + phone1.weight + " гр.");
@@ -47,12 +47,19 @@ public class Main {
                 "\nМодель телефона 3: " + phone3.model + "; Вес = " + phone3.weight + " гр.");
         System.out.println();
         phone1.receiveCall("Вадим");
-        phone1.getNumber("375(33)111-11-11");
-        phone2.receiveCall("Павел");
-        phone2.getNumber("375(33)222-22-22");
-        phone3.receiveCall("Саша");
-        phone3.getNumber("375(33)333-33-33");
-    scanner.close();
-    }
+        phone1.setNumber("375(33)111-11-11");
+        System.out.println(phone1.getNumber());
 
+        phone2.receiveCall("Павел");
+        phone2.setNumber("375(33)222-22-22");
+        System.out.println(phone2.getNumber());
+        phone3.receiveCall("Саша");
+        phone3.setNumber("375(33)333-33-33");
+        System.out.println(phone3.getNumber());
+
+        phone1.receiveCall("Вадимка", "375(33)111-11-12");
+        phone2.receiveCall("Павлуня", "375(33)222-22-23");
+        phone3.receiveCall("Александр", "375(33)333-33-34");
+        scanner.close();
+    }
 }
