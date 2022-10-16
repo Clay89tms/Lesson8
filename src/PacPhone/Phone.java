@@ -36,7 +36,7 @@ public class Phone {
     }
 
     public String sendMessage(String... St) {
-        System.out.println("SMS отпралвлено следующим телефонам:");
+        System.out.println("\nSMS отпралвлено следующим телефонам:");
         String allNumber = "";
         for (int i = 0; i < St.length; i++) {
             allNumber += (i + 1) + " номер телефона: " + St[i] + "\n";
